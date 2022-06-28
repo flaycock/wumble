@@ -1,0 +1,21 @@
+div#wumbleGame {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+	width: 20%;
+}
+h1 {
+	color: purple;
+}
+.guess {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: none;
+	background-color: purple;
+	color: white;
+}
+#inputCheck {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
