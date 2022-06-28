@@ -5,31 +5,50 @@ const Game = () => {
 	const [input, setInput] = useState('');
 	const [msg, setMsg] = useState('');
 	const [attempts, setAttempts] = useState(0);
-	const wordAns = 'sift';	
+	const wordAns = 'SIFT';	
 
-	const handleInput = (input) => {
-		if (/^[a-zA-z]+$/.test(input) || input === '') {
-			setInput(input.toUpperCase());
-			setMsg('');
+	const handleInput = (userInput) => {
+		console.log(userInput);
+		if (/^[a-zA-Z]+$/.test(userInput) || userInput === '') {
+			if (userInput.length > 4 && userInput !== '') {
+				setMsg('The word is only 4 letters long');
+			} else {
+				setInput(userInput.toUpperCase());
+				setMsg('');
+			}
 		} else {
 			setMsg('We only accept letters here');
 		}
 	}
 
 	const checkInput = (word) => {
-		if (/^[a-zA-z]+$/.test(word)) {
-			if (word.toLowerCase() === wordAns) {
+		if (word.match(/^[A-Za-z]+$/)) {
+			if (word.toUpperCase() === wordAns) {
 				setAttempts(attempts + 1);
 				setMsg('Congrats! You guessed correctly');
 			} else if (word.length !== 4) {
 				setMsg('The word must be 4 letters long!');
 			} else {
 				setAttempts(attempts + 1);
-				setMsg('Wrong! Try again');
+				setMsg(letterChecker(word));
 			}
 		} else {
 			setMsg(word + ' is not a word');
 		}
+	}
+
+	const letterChecker = (word) => {
+		let matchedLetters = [];
+		for (let i = 0; i < wordAns.length; i++) {
+			for (let j = 0; j < word.length; j++) {
+				if (word[j] === wordAns[i]) {
+					matchedLetters.push(word[j]);
+					break;
+				}
+			}
+		}
+		let checkedString = matchedLetters.length > 0 ? 'You got ' + matchedLetters.join(', ') + ' correct' : 'You matched no letters correctly';
+		return checkedString;
 	}
 
 	return (
