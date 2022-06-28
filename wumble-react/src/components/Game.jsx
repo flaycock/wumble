@@ -5,7 +5,7 @@ const Game = () => {
 	const [input, setInput] = useState('');
 	const [msg, setMsg] = useState('');
 	const [attempts, setAttempts] = useState(0);
-	const wordAns = 'SIFT';	
+	const wordAns = 'FOOD';	
 
 	const handleInput = (userInput) => {
 		console.log(userInput);
