@@ -1,6 +1,6 @@
 import React, {useState, useRef} from 'react';
 import './Game.css';
-import words from './Data/words.js';
+import words from './data/Words.js';
 
 const Game = () => {
 	const [input, setInput] = useState('');
