@@ -14,6 +14,9 @@ h1 {
 	border: none;
 	background-color: purple;
 	color: white;
+	font-size: 3.5vw;
+	max-width: 60%;
+	text-align: center;
 }
 #inputCheck {
 	margin-top: 20px;
